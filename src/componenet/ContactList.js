@@ -1,18 +1,19 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import SearchBox from "./SearchBox";
+import ContactItem from "./ContactItem";
+import {useSelector} from "react-redux";
 
 const ContactList = () => {
+    const { contactList } = useSelector(state => state);
+
     return (
         <div>
-            <Form>
-                <Form.Group className="mb-3" controlId="name">
-                    <Form.Label>이름</Form.Label>
-                    <Form.Control type="email" placeholder="이름을 입력해주세요" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="phoneNumber">
-                    <Form.Label>연락처</Form.Label>
-                    <Form.Control type="email" placeholder="전화번호를 입력해주세요" />
-                </Form.Group>
-            </Form>
+            <SearchBox />
+            <div>
+                {contactList?.map((item, index) => (
+                    <ContactItem key={index} item={item} />
+                ))}
+            </div>
         </div>
     );
 };

@@ -1,6 +1,7 @@
 import './App.css';
-import {useDispatch, useSelector} from "react-redux";
 import { Container, Row, Col} from 'react-bootstrap'
+import ContactList from "./componenet/ContactList";
+import ContactForm from "./componenet/ContactForm";
 
 function App() {
   return (
@@ -9,10 +10,10 @@ function App() {
         <Container>
             <Row>
                 <Col>
-
+                    <ContactForm />
                 </Col>
                 <Col>
-
+                    <ContactList />
                 </Col>
             </Row>
         </Container>
