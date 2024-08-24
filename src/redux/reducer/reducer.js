@@ -1,7 +1,8 @@
 
 let initialState = {
     contactList:[],
-    search:''
+    searchKeyword:'',
+    deleteContact:'',
 }
 
 function reducer(state=initialState, action){
@@ -14,6 +15,11 @@ function reducer(state=initialState, action){
                     {name: action.payload.name, phoneNumber: action.payload.phoneNumber}
                 ]
             };
+        case 'SEARCH_CONTACT' :
+                return {
+                    ...state,
+                    searchKeyword : action.payload.searchKeyword
+                }
         default:
             return {...state}
     }
