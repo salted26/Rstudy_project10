@@ -3,6 +3,7 @@ let initialState = {
     contactList:[],
     searchKeyword:'',
     deleteContact:{},
+    editContact:{}
 }
 
 function reducer(state=initialState, action){
@@ -20,13 +21,13 @@ function reducer(state=initialState, action){
                     ...state,
                     searchKeyword : action.payload.searchKeyword
                 }
-                case 'DELETE_CONTACT' :
-                    return {
-                        ...state,
-                        contactList: [
-                            ...state.contactList.filter(deleteContact => deleteContact !== action.payload),
-                        ]
-                    }
+        case 'DELETE_CONTACT' :
+            return {
+                ...state,
+                contactList: [
+                    ...state.contactList.filter(deleteContact => deleteContact !== action.payload),
+                ]
+            }
         default:
             return {...state}
     }
