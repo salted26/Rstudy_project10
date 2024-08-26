@@ -46,12 +46,12 @@ const ContactItem = ({item}) => {
                         <div><b>{item.name}</b></div>
                         <div>{item.phoneNumber}</div>
                     </Col>
-                    <Col lg={2}>
+                    <Col className="edit-button" lg={2}>
                         <Button variant="info" onClick={()=>handleEditInput()}>수정</Button>
                         <Button variant='warning' onClick={() =>handleDelete()}>삭제</Button>
                     </Col>
                 </div>
-                    : <>
+                    : <div className="items">
                         <Form.Group className="mb-3" controlId="name">
                             <Form.Label>이름</Form.Label>
                             <Form.Control type="text" defaultValue={item.name} onChange={(e) => setName(e.target.value)}/>
@@ -61,7 +61,7 @@ const ContactItem = ({item}) => {
                             <Form.Control type="number" defaultValue={item.phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)}/>
                             <Button variant="info" onClick={()=>handleEdit()}>수정</Button>
                         </Form.Group>
-                    </>
+                    </div>
                 }
             </Row>
         </div>
